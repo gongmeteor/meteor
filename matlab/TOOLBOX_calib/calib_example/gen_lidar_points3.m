@@ -1,10 +1,14 @@
 function lidar_points = gen_lidar_points3(Camera2LidarR, Camera2LidarT)
 image_prefix = 'Image';
 image_suffix = '.tif';
-chessboard_prefix = 'chessboard';
-pixel_prefix = 'pixel';
-lidar_prefix = 'lidar';
-calib_num = 20;
+chessboard_prefix = 'chessboard/chessboard';
+pixel_prefix = 'pixel/pixel';
+lidar_prefix = 'lidar/lidar';
+calib_num = length(dir('pixel')) - 2;
+
+if ~exist('lidar', 'dir')
+    mkdir('lidar')
+end
 
 show_corners = true;
 
